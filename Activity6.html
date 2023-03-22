@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Activity6</title>
+
+    <style>
+      #box {
+        width: 500px;
+        height: 300px;
+        top: 100px;
+        left: 500px;
+        border: 2px solid ;
+        position: absolute;
+      }
+      #image {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+    </style>
+
+  </head>
+  <body>
+
+      <div id="box">
+        <img id="image" src="birds.gif" alt="Image">
+      </div>
+
+    <script>
+
+    var img = document.getElementById("image");
+    var innerContainer = document.getElementById("box");
+    var containerWidth = innerContainer.clientWidth;
+    var containerHeight = innerContainer.clientHeight;
+    var imageWidth = image.clientWidth;
+    var imageHeight = image.clientHeight;
+
+    document.addEventListener("keyup", function(event) {
+    var x = parseInt(window.getComputedStyle(image).getPropertyValue("left"));
+    var y = parseInt(window.getComputedStyle(image).getPropertyValue("top"));
+
+        var keyCode = event.keyCode;
+			switch(keyCode) {
+			    case 87:
+                     if (y - 20 >= 0) {
+                        img.src = "Up.png";
+                        image.style.top = y - 20 + "px";
+                        }
+                 break;
+                case 88:
+                    if (y + imageHeight + 20 <= containerHeight) {
+                        img.src = "Down.png";
+                        image.style.top = y + 20 + "px";
+                        }
+                 break;
+                case 65:
+                    if (x - 20 >= 0) {
+                        img.src = "Left.png";
+                        image.style.left = x - 20 + "px";
+                        }
+                break;
+                case 68:
+                    if (x + imageWidth + 20 <= containerWidth) {
+                        img.src = "Right.png";
+                        image.style.left = x + 20 + "px";
+                        }
+                break;
+            }
+    });
+
+    </script>
+
+  </body>
+</html>
